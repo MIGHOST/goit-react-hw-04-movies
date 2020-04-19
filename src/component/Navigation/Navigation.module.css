@@ -1,0 +1,23 @@
+.nav_menu {
+    background: linear-gradient(to bottom, rgba(235, 233, 249, 1) 0%,
+     rgba(216, 208, 239, 1) 38%, rgba(206, 199, 236, 1) 51%, 
+     rgba(193, 191, 234, 1) 100%);
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;    
+    font: 700 24px san-serif;
+    padding: 10px;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.link {
+    text-decoration: none;
+    padding: 0 50px;
+    color: rgb(32, 30, 30);
+}
+
+.activeStyle {
+    color: red;
+}

@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    margin: 0;
+    padding: 10px;
+}
+
+.title_page {
+    text-align: center;
+}
+
+.button {
+    margin-left: 60px;
+}
+
+.button_label {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 0;
+    background-image: url("https://image.flaticon.com/icons/svg/134/134226.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 5px;
+}
+
+.img_container {
+    display: block;
+    margin: 50px;
+    text-align: left;
+}
+
+
+.title {
+    display: inline-block;
+    margin: 0;
+}
+
+.vote {
+
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 0;
+    background-image: url("https://image.flaticon.com/icons/svg/2107/2107957.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 5px;
+}
+
+.overview {
+    display: inline-block;
+    width: 500px;
+    margin: 0;
+
+}
+
+.genres_list {
+    list-style: none;
+    padding: 0;
+
+}
