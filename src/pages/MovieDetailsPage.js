@@ -11,7 +11,8 @@ import getIdFromProps from '../helpers/getID';
 import Movies from '../component/Movie/Movie';
 import routes from '../utils/routes';
 import AdditionalInfo from '../component/AdditionalInfo/AdditionalInfo';
-import Loader from 'react-loader-spinner'
+import Spinner from '../component/Spinner/Spinner';
+import ErrorNotification from '../component/Error/ErrorNotification';
 
 const AsyncCast = lazy(() =>
   import('../component/Cast/Cast' /* webpackChunkName: "cast-page"*/),
@@ -26,10 +27,15 @@ const MovieDetailsPage = () => {
   const location = useLocation();
 
   const [film, setFilm] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoader, setIsLoader] = useState(true);
 
   useEffect(() => {
     const id = getIdFromProps(match);
-    fetchFindMoviesID(id).then(film => setFilm(film));
+    fetchFindMoviesID(id)
+      .then(film => setFilm(film))
+      .catch(error => setError(error))
+      .finally(() => setIsLoader(false));
   }, [match]);
 
   const handleGoBack = () => {
@@ -45,19 +51,13 @@ const MovieDetailsPage = () => {
       {film && <Movies {...film} onGoBack={handleGoBack} />}
 
       <AdditionalInfo />
-      <Suspense fallback={
-         <Loader
-         type="Puff"
-         color="#000000"
-         height={100}
-         width={100}
-         timeout={3000} />
-        }>
+      <Suspense fallback={isLoader && <Spinner />}>
         <Switch>
-          <Route path={`${match.path}/cast`} component={AsyncCast} />
-          <Route path={`${match.path}/reviews`} component={AsyncReviews} />
+          <Route path={routes.CAST} component={AsyncCast} />
+          <Route path={routes.REVIEWS} component={AsyncReviews} />
         </Switch>
       </Suspense>
+      {error && <ErrorNotification text={error.message} />}
     </>
   );
 };

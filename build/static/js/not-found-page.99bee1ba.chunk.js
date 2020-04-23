@@ -1,0 +1,2 @@
+(this.webpackJsonprouter=this.webpackJsonprouter||[]).push([[6],{105:function(t,e,n){"use strict";n.r(e);var r=n(0),u=n.n(r);e.default=function(){return u.a.createElement("h1",null,"Page not found")}}}]);
+//# sourceMappingURL=not-found-page.99bee1ba.chunk.js.map
